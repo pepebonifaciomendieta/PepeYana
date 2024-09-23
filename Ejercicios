@@ -1,0 +1,23 @@
+def solicitar_letra():
+    letra = input("Introduce una letra: ")
+    return letra
+
+def validar_letra(letra):
+    return letra.isalpha() and len(letra) == 1 and letra in "abcdefghijklmnopqrstuvwxyzñáéíóúü"
+
+def validar():
+    contador = 0
+    while True:
+        letra = solicitar_letra()
+        if validar_letra(letra):
+            return letra.lower(), contador
+        contador += 1
+        print("Entrada inválida. Por favor, introduce una letra.")
+
+def main():
+    letra, intentos = validar()
+    print(f"La letra en minúscula es: {letra}")
+    print(f"Intentos de entrada inválida: {intentos}")
+
+if __name__ == "__main__":
+    main()
